@@ -1,0 +1,27 @@
+.gram__convertor__block{
+    display: flex;
+    gap: 20px;
+    /* font-size: 15px; */
+    border: 1px solid black;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.gram__convertor__block input, .value__block span{
+    outline: 0;
+    border:0px;
+    border-bottom: 1px solid gold;
+}
+
+.gram__block, .value__block{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 10px;
+}
+
+.gram__block label, .value__block p{
+    font-size: 25px;
+}

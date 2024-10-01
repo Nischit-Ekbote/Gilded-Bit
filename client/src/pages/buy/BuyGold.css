@@ -1,0 +1,75 @@
+.buy__gold__container{
+    /* margin-left:200px ; */
+    /* background-color: black; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 30px;
+}
+
+.buy__gold__container h1{
+    margin-bottom: 20px;
+    font-weight: 300;
+
+}
+
+.gold-type-buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.gold-type-buttons button{
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: 15px;
+
+}
+
+.goldType{
+    background-color: inherit;
+    color: white;
+    border: 1px solid var(--primary--);
+    
+}
+
+.goldTypeActive{
+    background-color: var(--primary--);
+    color: var(--secondary--);
+    font-weight: 600;
+    /* border: none; */
+}   
+
+.goldForm{
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.goldForm-input{
+    background-color: var(--secondary--);
+    display: flex;
+    height: 50px;
+    /* justify-content: center; */
+    align-items: center;
+    border-radius: 10px;
+    margin: 20px 0px;
+    padding: 0px 10px;
+}
+
+.goldForm input{
+    background:none;
+    border: none;
+    height: 40px;
+    outline: none;
+    color:white;
+    width: 200px;
+}
+
+.goldForm button{
+    color: white;
+    background-color: inherit;
+    border: 1px solid var(--primary--);
+    padding: 10px 15px;
+    border-radius: 10px;
+}
