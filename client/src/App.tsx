@@ -100,11 +100,15 @@ function App(): JSX.Element {
             body: JSON.stringify(userData),
           });
 
-          if (!response.ok) {
-            throw new Error('Failed to send user data');
+          if (response.status===409) {
+            console.log('User already exists')
           }
-
-          console.log('User data sent successfully');
+          else if(!response.ok){
+            throw new Error('Failed to send user data')
+          }
+          else{
+            console.log('User data sent successfully');
+          }
         } catch (err) {
           console.error('Error sending user data:', (err as Error).message);
         }
@@ -115,18 +119,20 @@ function App(): JSX.Element {
   }, [user]);
 
   const backgroundColor = location.pathname !== '/'
-    ? 'linear-gradient(180deg, #000000 0%, #001D3D 100%)' // Home background
-    : ''; // Default background for other routes
+    ? 'linear-gradient(180deg, #000000 0%, #001D3D 100%) ' 
+    : ''; 
 
   return (
-      <div style={{ display: 'flex', background: backgroundColor }}>
+      <div style={{ display: 'flex', background: backgroundColor, minHeight:'100vh'}}>
         <NavBar />
         {error && <div className="error-message">{error}</div>}
+        <div className='w-[100px]'></div>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/buy/gold" element={<BuyGoldPage goldRates={goldRates} />} />
           <Route path="/success" element={<Success/>}></Route>
+          {/* <Route path="cancel" element={<C/>}></Route> */}
           <Route path="/sell/gold" element={<SellGoldPage goldRates={goldRates} />} />
         </Routes>
       </div>

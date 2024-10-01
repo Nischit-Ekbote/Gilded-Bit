@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-
+import React, { lazy, Suspense } from "react";
 import {
   SignedIn,
   SignedOut,
@@ -7,95 +6,38 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import "./NavBar.css";
-import { useState } from "react";
 
-function NavBar() {
-  const [isActive, setIsActive] = useState("home");
+const LazyFloatingDockDemo = lazy(() =>
+  import("../FloatingdockDemo").then((module) => ({
+    default: module.FloatingDockDemo,
+  }))
+);
 
+interface NavBarProps {}
+
+const NavBar: React.FC<NavBarProps> = () => {
   return (
-    <div className="navBar__container h-screen">
-      <nav
-        style={{
-          flexDirection: "column",
-        }}
-      >
+    <div className="navBar__container h-screen w-[100px] absolute z-50">
+      <nav style={{ flexDirection: "column" as const }}>
         <div className="flex flex-col">
-          {/* <h1 className="logo text-2xl my-6">GB</h1> */}
-          <img src="/Logo.svg" alt="" className="h-[20px] my-10"/>
-          <ul
-            style={{
-              flexDirection: "column",
-            }}
-          >
-            <li
-              onClick={() => {
-                setIsActive("home");
-              }}
-            >
-              <Link
-                to="/"
-                style={{
-                  color: isActive === "home" ? "#FFC300" : "white",
-                }}
-              >
-                HOME
-              </Link>
-            </li>
-            <li
-              onClick={() => {
-                setIsActive("about");
-              }}
-            >
-              <Link
-                to="/about"
-                style={{
-                  color: isActive === "about" ? "#FFC300" : "white",
-                }}
-              >
-                ABOUT
-              </Link>
-            </li>
-            <li
-              onClick={() => {
-                setIsActive("buy");
-              }}
-            >
-              <Link
-                to="/buy/gold"
-                style={{
-                  color: isActive === "buy" ? "#FFC300" : "white",
-                }}
-              >
-                BUY
-              </Link>
-            </li>
-            <li
-              onClick={() => {
-                setIsActive("sell");
-              }}
-            >
-              <Link
-                to="/sell/gold"
-                style={{
-                  color: isActive === "sell" ? "#FFC300" : "white",
-                }}
-              >
-                SELL
-              </Link>
-            </li>
-          </ul>
+          <img src="/Logo.svg" alt="Logo" className="h-[20px]" />
+            <Suspense fallback={<div>Loading...</div>}>
+              <LazyFloatingDockDemo />
+            </Suspense>
         </div>
 
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
+        <div className="absolute bottom-10">
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
 
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
       </nav>
     </div>
   );
-}
+};
 
-export default NavBar;
+export default React.memo(NavBar);

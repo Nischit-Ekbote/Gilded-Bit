@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import SpinnerLoader from './spinnerLoader/spinnerLoader';
+import SpinnerLoader from '../components/spinnerLoader/SpinnerLoader';
 import CustomChart from './chart/CustomChart'
 
 interface OrderData {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, CreditCard, TrendingUp, DollarSign } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface FeatureCardProps {
     icon: React.ReactNode;
@@ -9,19 +10,19 @@ interface FeatureCardProps {
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="flex h-screen text-white">
+    <div className="flex h-screen text-white w-[100%]">
       <div className="flex-grow p-8 overflow-y-auto">
-        <h2 className="text-3xl font-bold mb-6 text-yellow-500">About GildedBit</h2>
+        <div className='h-screen flex flex-col py-20'>
+          <h2 className="text-7xl  mb-6 text-[--primary--]">About GildedBit</h2>
         
-        <p className="mb-6 text-gray-300">
-          GildedBit is at the forefront of digital gold investment, merging the timeless value of gold 
-          with modern technology. Our platform offers a secure, efficient, and accessible 
-          way to buy, sell, and invest in digital gold, bringing the stability of gold to the digital age.
+        <p className="mb-6 text-gray-300 w-[60%] text-5xl ">
+          GildedBit leads digital gold investment, combining the enduring value of <span className='text-[#ffffb7]'>gold</span> with modern <span className='text-[#ffffb7]'>tech</span>nology. Our platform provides a secure and easy way to <span className='text-[#ffffb7]'>buy, sell, and invest</span> in digital gold, offering the stability of gold in the digital era.
         </p>
+        </div>
 
-        <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Our Features</h3>
+        <h3 className="text-3xl font-semibold mb-4 text-yellow-500">Our Features</h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="flex gap-6 mb-8">
           <FeatureCard 
             icon={<Shield className="w-8 h-8 text-yellow-500" />}
             title="Robust Security"
@@ -70,9 +71,9 @@ const AboutPage: React.FC = () => {
             or new to the market, our platform provides the tools and resources you need to succeed in the 
             world of digital gold.
           </p>
-          <button className="bg-yellow-500 text-black font-bold py-2 px-4 rounded">
+          <Link to='/buy/gold' className="bg-yellow-500 text-black font-bold py-2 px-4 rounded" >
             Create Your GildedBit Account
-          </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -81,11 +82,11 @@ const AboutPage: React.FC = () => {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => (
   <div className="bg-[#003566] p-4 rounded-lg">
-    <div className="flex items-center mb-2">
+    <p className="text-gray-300 pb-5 border-b text-lg font-light">{description}</p>
+    <div className="flex items-center mb-2 pt-5 gap-0">
       {icon}
-      <h4 className="text-lg font-semibold ml-2">{title}</h4>
+      <h4 className="text-lg font-semibold ml-2 ">{title}</h4>
     </div>
-    <p className="text-gray-300">{description}</p>
   </div>
 );
 

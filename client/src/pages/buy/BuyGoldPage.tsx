@@ -22,7 +22,6 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
   const { user } = useUser();
   const [grams, setGrams] = useState<string>("");
   const [selectedType, setSelectedType] = useState<string>("24k");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const type = selectedType;
   
   if (!goldRates) {
@@ -57,7 +56,8 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
 
   return (
     <div className="buy__gold__container">
-      <Toaster richColors />
+      <div className="w-fit">
+        <Toaster richColors />
       <h1>Buy Gold</h1>
       <div className="gold-type-buttons">
         {goldTypes.map((type) => (
@@ -81,7 +81,7 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
             value={grams}
             onChange={(e) => setGrams(e.target.value)}
             placeholder="Enter grams of gold"
-            disabled={isLoading}
+            // disabled={isLoading}
             required
           />
           <p>={totalAmount.toFixed(2)}Rs</p>
@@ -95,6 +95,7 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
           type={type}
         />
       </form>
+      </div>
     </div>
   );
 };

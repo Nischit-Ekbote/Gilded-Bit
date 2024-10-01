@@ -48,7 +48,6 @@ const updateDailyGoldRate = async (goldData) => {
                 WHERE date = ${today}::date
                 RETURNING *
             `;
-            console.log('Gold data updated for today:');
             return updatedData;
         } else {
 
