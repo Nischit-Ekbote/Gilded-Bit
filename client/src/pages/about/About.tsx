@@ -1,5 +1,5 @@
 import React from "react";
-import { Shield, CreditCard, TrendingUp, DollarSign } from "lucide-react";
+import { Shield, CreditCard, TrendingUp} from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface FeatureCardProps {
