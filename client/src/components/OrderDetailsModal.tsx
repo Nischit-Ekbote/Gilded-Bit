@@ -17,7 +17,7 @@ interface OrderData {
 
 interface Stats {
     current: number,
-    profitLoss: string
+    profitLoss: string;
 }
 
 interface OrderDetailsModalProps {

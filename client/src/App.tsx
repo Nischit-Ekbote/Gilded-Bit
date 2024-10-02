@@ -100,7 +100,7 @@ function App(): JSX.Element {
             body: JSON.stringify(userData),
           });
 
-          if (response.status===409) {
+          if (response.status!==409) {
             console.log('User already exists')
           }
           else if(!response.ok){
@@ -119,11 +119,11 @@ function App(): JSX.Element {
   }, [user]);
 
   const backgroundColor = location.pathname !== '/'
-    ? 'linear-gradient(180deg, #000000 0%, #001D3D 100%) ' 
-    : ''; 
+    ? 'linear-gradient(180deg, #000000 0%, #001D3D 100%) ' // Home background
+    : ''; // Default background for other routes
 
   return (
-      <div style={{ display: 'flex', background: backgroundColor, minHeight:'100vh'}}>
+      <div style={{ display: 'flex', background: backgroundColor , minHeight:'100vh'}}>
         <NavBar />
         {error && <div className="error-message">{error}</div>}
         <div className='w-[100px]'></div>
