@@ -35,7 +35,7 @@ app.post('/api/v1/addgoldData', async (req, res) => {
         return res.status(500).json({ message: 'Error updating gold data', error: error.message });
     }
 });
-
+ 
 app.get('/api/v1/gold/getData' , async (req, res) => {
     try {
         const result = await getGoldData();

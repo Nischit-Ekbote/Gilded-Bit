@@ -21,10 +21,8 @@ const NavBar: React.FC<NavBarProps> = () => {
       <nav style={{ flexDirection: "column" as const }}>
         <div className="flex flex-col">
           <img src="/Logo.svg" alt="Logo" className="h-[20px]" />
-            <Suspense fallback={<div>Loading...</div>}>
               <LazyFloatingDockDemo />
-            </Suspense>
-        </div>
+          </div>
 
         <div className="absolute bottom-10">
           <SignedOut>
