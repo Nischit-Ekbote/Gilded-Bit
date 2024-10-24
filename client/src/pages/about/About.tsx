@@ -88,7 +88,7 @@ const AboutPage: React.FC = () => {
           creating a secure and efficient platform for the modern investor.
         </p>
 
-        <div className="bg-[#003566] p-6 rounded-lg">
+        <div className="bg-gradient-to-b to-black from-[#001D3D] p-6 rounded-lg">
           <h3 className="text-xl font-semibold mb-2 text-yellow-500">
             Join the Digital Gold Revolution
           </h3>
@@ -115,7 +115,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
 }) => (
-  <div className="bg-[#003566] p-8 rounded-lg">
+  <div className="bg-gradient-to-b to-black from-[#001D3D] p-8 rounded-lg">
     <p className="text-gray-300 pb-5 border-b text-xl font-normal">
       {description}
     </p>

@@ -34,7 +34,7 @@ function HomePage() {
               <Link to='/buy/gold' className="bg-[--primary--] text-[--secondary--] rounded-full px-[80px] py-3 hover:bg-inherit hover:border hover:border-[--pimary--] hover:text-[white] duration-300 font-semibold">Buy Gold</Link>
               <Link to='/sell/gold' className="border border-[--primary--] rounded-full px-[80px] py-3 hover:bg-[white] hover:text-[--secondary--] duration-300">Sell Gold</Link>
             </div>
-          <video className='main__video'
+          <video className='main__video h-full w-full object-cover'
             ref={videoRef}
             muted
             loop
