@@ -9,7 +9,7 @@ import SellGoldPage from './pages/sell/SellGoldPage';
 import Success from './pages/sucess/Success';
 import AboutPage from './pages/about/About';
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000/api/v1";
+const API_BASE_URL = process.env.VITE_BACKEND_URL || "http://localhost:4000/api/v1";
 
 interface GoldRates {
   price_gram_18k: number;

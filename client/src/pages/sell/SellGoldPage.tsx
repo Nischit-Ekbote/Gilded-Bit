@@ -3,7 +3,7 @@ import { useUser } from "@clerk/clerk-react";
 import SingleSellCard from "../../components/SingleSellCard";
 import { toast, Toaster } from "sonner";
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000/api/v1";
+const API_BASE_URL = process.env.VITE_BACKEND_URL || "http://localhost:4000/api/v1";
 
 interface OrderData {
   id: string;

@@ -119,39 +119,9 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
         />
       </form>
       </div>
-      {/* <BuyGoldTable/> */}
     </div>
   );
 };
 
 export default BuyGoldPage;
-
-
-
-// function BuyGoldTable({goldRates} : any) {
-
-//     const goldTable = [
-//     { name: '24k', price: goldRates.price_gram_24k || 0 },
-//     { name: '22k', price: goldRates.price_gram_22k || 0 },
-//     { name: '20k', price: goldRates.price_gram_20k || 0 },
-//     { name: '18k', price: goldRates.price_gram_18k || 0 },
-//   ];
-
-//   return (
-//     <div className="p-10">
-//       <h1>Today's Price</h1>
-//       <table>
-//         <tbody>
-//           {goldTable.map((item, i) => (
-//             <tr key={i}>
-//               <td>{item.name} -</td>
-//               <td>{item.price}</td>
-//               <td> / gram</td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// }
 
