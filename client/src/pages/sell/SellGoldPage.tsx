@@ -40,7 +40,7 @@ const SellGoldPage: React.FC<SellGoldPageProps> = ({ goldRates }) => {
         setIsLoading(true);
         setError(null);
         try {
-          const response = await fetch(`${API_BASE_URL}sell/goldData`, {
+          const response = await fetch(`${API_BASE_URL}/sell/goldData`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
