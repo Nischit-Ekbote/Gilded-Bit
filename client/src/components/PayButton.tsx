@@ -2,6 +2,8 @@ import { useUser } from '@clerk/clerk-react';
 import React from 'react';
 import { toast } from 'sonner';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000/api/v1";
+
 interface PayButtonProps {
   amount: number;
   productName: string;
@@ -17,7 +19,7 @@ const PayButton: React.FC<PayButtonProps> = ({ amount, productName, element, gra
     const uid = user?.id;
   const handleCheckout = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/v1/stripe/create-checkout-session', {
+      const response = await fetch(`${API_BASE_URL}/stripe/create-checkout-session`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

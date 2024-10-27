@@ -4,11 +4,13 @@ import { X } from 'lucide-react';
 import SpinnerLoader from '../components/spinnerLoader/SpinnerLoader';
 import CustomChart from './chart/CustomChart'
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000/api/v1";
+
 interface OrderData {
   id: string;
   uid: string;
   element: string;
-  type: string;
+  type: string; 
   grams: number;
   spotprice: number;
   totaldigitalprice: number;
@@ -37,7 +39,7 @@ const OrderDetailsModal: React.FC<OrderDetailsModalProps> = ({ order, onClose, h
     }
 
     try {
-      const response = await fetch('http://localhost:4000/api/v1/sell/gold', {
+      const response = await fetch(`${API_BASE_URL}/sell/gold`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

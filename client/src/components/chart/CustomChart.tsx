@@ -20,6 +20,8 @@ ChartJS.register(
   Tooltip
 );
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000/api/v1";
+
 interface ChartTypes {
   element: string;
   type: string;
@@ -33,7 +35,7 @@ const ChartComponent: React.FC<ChartTypes> = ({ element, type }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/v1/${element}/getData`);
+        const response = await fetch(`${API_BASE_URL}/${element}/getData`);
         const data = await response.json();
 
         if (response.ok) {
