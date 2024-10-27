@@ -82,6 +82,8 @@ function App(): JSX.Element {
     return () => clearInterval(intervalId);
   }, []);
 
+  console.log(API_BASE_URL)
+
   useEffect(() => {
     async function handleLogin() {
       if (user) {
