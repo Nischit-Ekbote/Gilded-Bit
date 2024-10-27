@@ -25,8 +25,8 @@ router.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: `http://localhost:5173/success?element=${element}&type=${type}&amount=${amount}&grams=${grams}`,
-      cancel_url: 'http://localhost:5173/buy/gold',
+      success_url: `https://gildedbit.vercel.app/success?element=${element}&type=${type}&amount=${amount}&grams=${grams}`,
+      cancel_url: 'https://gildedbit.vercel.app/buy/gold',
     });
 
     await buyGold({id : uid, element, type, grams, spotPrice : amount})
