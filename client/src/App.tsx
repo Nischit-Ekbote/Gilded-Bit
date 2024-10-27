@@ -34,13 +34,13 @@ function App(): JSX.Element {
   useEffect(() => {
     async function fetchAndUpdateGoldRates() {
       try {
-        // Fetch from external API
-        // const externalResponse = await fetch(`https://www.goldapi.io/api/XAU/INR`, {
-        //   headers: {
-        //     'x-access-token': import.meta.env.VITE_GOLD_API_KEY,
-        //   },
-        // });
-        const externalResponse = await fetch(`${API_BASE_URL}/gold/getData`)
+
+        const externalResponse = await fetch(`https://www.goldapi.io/api/XAU/INR`, {
+          headers: {
+            'x-access-token': import.meta.env.VITE_GOLD_API_KEY,
+          },
+        });
+        // const externalResponse = await fetch(`${API_BASE_URL}/gold/getData`)
 
         if (!externalResponse.ok) {
           throw new Error('Failed to fetch gold rates from external API');
