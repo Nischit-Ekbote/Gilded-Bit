@@ -15,6 +15,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/',(req,res)=> {
+    res.send("welcome to gilded bit")
+})
+
 app.use('/api/v1/stripe', stripe);
 
 const PORT = process.env.PORT || 4000;
