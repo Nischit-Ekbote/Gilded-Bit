@@ -66,9 +66,9 @@ const SellGoldPage: React.FC<SellGoldPageProps> = ({ goldRates }) => {
   }, [user, deleted]);
 
   return (
-    <div className="px-16">
+    <div className="pl-20 scroll-m-0">
       <Toaster richColors/>
-      <h1 className="pt-10 pb-4 text-2xl">Sell</h1>
+      <h1 className="pt-10 pb-4 text-4xl">Sell</h1>
       {isLoading && <p>Loading orders...</p>}
       {error && <p>Error: {error}</p>}
       {orders.length > 0 ? (

@@ -45,7 +45,7 @@ const PayButton: React.FC<PayButtonProps> = ({ amount, productName, element, gra
   };
 
   return (
-    <button onClick={handleCheckout}>
+    <button onClick={handleCheckout} className='goldForm-button'>
       Proceed to Checkout
     </button>
   );

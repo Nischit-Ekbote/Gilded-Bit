@@ -18,7 +18,7 @@
     gap: 20px;
 }
 
-.gold-type-buttons button{
+.gold-type-buttons > button{
     border-radius: 10px;
     padding: 5px 15px;
     font-size: 15px;
@@ -66,7 +66,7 @@
     width: 200px;
 }
 
-.goldForm button{
+.goldForm-button{
     color: white;
     background-color: inherit;
     border: 1px solid var(--primary--);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import OrderDetailsModal from './OrderDetailsModal';
 
 interface OrderData {
@@ -27,6 +27,23 @@ interface SingleSellCardProps {
 
 const SingleSellCard: React.FC<SingleSellCardProps> = ({ order, goldRates, handleDeleted }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (ref.current && !ref.current.contains(event.target as Node)) {
+                setIsModalOpen(false);
+            }
+        };
+
+        if (isModalOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isModalOpen]);
 
   const current = goldRates ? goldRates[`price_gram_${order.type}` as keyof GoldRate] : 0;
   
@@ -49,19 +66,23 @@ const SingleSellCard: React.FC<SingleSellCardProps> = ({ order, goldRates, handl
         <p className='relative top-12 font-light'>{order.grams} g</p>
         <button 
           onClick={() => setIsModalOpen(true)} 
-          className="border border-[--primary--] rounded px-14 py-1 hover:bg-[--primary--] hover:text-[--secondary--] duration-500"
+          className="border border-[--primary--] rounded-full px-14 py-1 hover:bg-[--primary--] hover:text-[--secondary--] duration-500"
         >
           Details
         </button>
       </div>
 
       {isModalOpen && (
-        <OrderDetailsModal 
-          order={order} 
-          stats={{ current, profitLoss }}
-          onClose={() => setIsModalOpen(false)}
-          handleDeleted={handleDeleted}
-        />
+        <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 duration-1000">
+          <div ref={ref}>
+            <OrderDetailsModal 
+            order={order} 
+            stats={{ current, profitLoss }}
+            onClose={() => setIsModalOpen(false)}
+            handleDeleted={handleDeleted}
+          />
+          </div>
+        </div>
       )}
     </>
   );

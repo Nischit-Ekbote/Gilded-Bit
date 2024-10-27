@@ -18,6 +18,22 @@ interface BuyGoldPageProps {
   } | null;
 }
 
+const gramList = [{
+  gram:'1',
+},
+{
+  gram:'8',
+},
+{
+  gram:'10',
+},
+{
+  gram:'100',
+},
+{
+  gram:'200',
+}]
+
 const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
   const { user } = useUser();
   const [grams, setGrams] = useState<string>("");
@@ -54,11 +70,15 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
     }
   };
 
+  const list = gramList.map((item : any, key : number) => (
+    <div key={key} className="bg-[--secondary--] p-2 rounded-md cursor-pointer" onClick={()=>{setGrams(item.gram)}} >{item.gram} gm</div>
+  ))
+
   return (
     <div className="buy__gold__container">
       <div className="w-fit">
         <Toaster richColors />
-      <h1>Buy Gold</h1>
+      <h1 className="text-4xl">Buy Gold</h1>
       <div className="gold-type-buttons">
         {goldTypes.map((type) => (
           <button
@@ -75,9 +95,9 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
         ))}
       </div>
       <form onSubmit={handleSubmit} className="goldForm">
-        <div className="goldForm-input">
+        <div className="goldForm-input flex justify-between">
           <input
-            type="number"
+            type="text"
             value={grams}
             onChange={(e) => setGrams(e.target.value)}
             placeholder="Enter grams of gold"
@@ -85,6 +105,9 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
             required
           />
           <p>={tot.toFixed(2)}Rs</p>
+        </div>  
+        <div className="flex mb-4  gap-2">
+          {list}
         </div>
         <PayButton 
 

@@ -6,22 +6,22 @@ import { IconHome } from "@tabler/icons-react";
 const links = [
   {
     title: "Home",
-    icon: <IconHome className="h-full w-full text-black dark:text-neutral-300" />,
+    icon: <IconHome className="h-full w-full text-[--primary--] dark:text-neutral-300" />,
     href: "/",
   },
   {
     title: "About",
-    icon: <BadgeInfo className="h-full w-full text-black dark:text-neutral-300" />,
+    icon: <BadgeInfo className="h-full w-full text-[--primary--] dark:text-neutral-300" />,
     href: "/about",
   },
   {
     title: "Buy",
-    icon: <ShoppingCart className="h-full w-full text-black dark:text-neutral-300" />,
+    icon: <ShoppingCart className="h-full w-full text-[--primary--] dark:text-neutral-300" />,
     href: "/buy/gold",
   },
   {
     title: "Sell",
-    icon: <Receipt className="h-full w-full text-black dark:text-neutral-300" />,
+    icon: <Receipt className="h-full w-full text-[--primary--] dark:text-neutral-300" />,
     href: "/sell/gold",
   }
 ];

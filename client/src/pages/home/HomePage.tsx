@@ -31,7 +31,7 @@ function HomePage() {
         <h1>GildedBit</h1>
         <p> Revolutionizing wealth <span className="gold">preservation</span> in the <span className="gold">digital</span> age.</p>
           <div className="flex gap-6 m-8 translate-y-[30px]">
-              <Link to='/buy/gold' className="bg-[--primary--] text-[--secondary--] rounded-full px-[80px] py-3 hover:bg-inherit hover:border hover:border-[--pimary--] hover:text-[white] duration-300 font-semibold">Buy Gold</Link>
+              <Link to='/buy/gold' className="bg-[--primary--] text-[--secondary--] rounded-full px-[80px] py-3 hover:bg-inherit border border-[--primary--] hover:border-[--pimary--] hover:text-[white] duration-300 font-semibold">Buy Gold</Link>
               <Link to='/sell/gold' className="border border-[--primary--] rounded-full px-[80px] py-3 hover:bg-[white] hover:text-[--secondary--] duration-300">Sell Gold</Link>
             </div>
           <video className='main__video h-full w-full object-cover'

@@ -10,7 +10,7 @@ interface FeatureCardProps {
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="flex h-screen text-white w-[100%]">
+    <div className="flex h-screen text-white w-[calc(100vw-100px)]">
       <div className="flex-grow p-8 overflow-y-auto">
         <div className="h-screen flex flex-col py-20">
           <h2 className="text-7xl  mb-6 text-[--primary--]">About GildedBit</h2>
@@ -51,7 +51,7 @@ const AboutPage: React.FC = () => {
           /> */}
           </div>
 
-          <h3 className="text-5xl font-semibold mb-4 text-yellow-500 mt-24">
+          <h3 className="text-7xl  mb-6 text-[--primary--] mt-20">
             Why Choose GildedBit?
           </h3>
 
@@ -77,7 +77,7 @@ const AboutPage: React.FC = () => {
           </ul>
         </div>
 
-        <h3 className="text-5xl font-semibold mb-4 text-yellow-500">
+        <h3 className="text-7xl mb-4 text-yellow-500">
           Our Mission
         </h3>
 
@@ -88,8 +88,8 @@ const AboutPage: React.FC = () => {
           creating a secure and efficient platform for the modern investor.
         </p>
 
-        <div className="bg-gradient-to-b to-black from-[#001D3D] p-6 rounded-lg">
-          <h3 className="text-xl font-semibold mb-2 text-yellow-500">
+        <div className="bg-gradient-to-b to-black from-[#001D3D] p-6 rounded-lg flex flex-col gap-2">
+          <h3 className="text-2xl font-semibold mb-2 text-yellow-500">
             Join the Digital Gold Revolution
           </h3>
           <p className="text-gray-300 mb-4">
@@ -100,7 +100,7 @@ const AboutPage: React.FC = () => {
           </p>
           <Link
             to="/buy/gold"
-            className="bg-yellow-500 text-black font-bold py-2 px-4 rounded"
+            className="bg-yellow-500 text-black font-bold py-2 px-4 rounded w-fit hover:bg-inherit border border-[--primary--] hover:text-[--primary--]"
           >
             Create Your GildedBit Account
           </Link>

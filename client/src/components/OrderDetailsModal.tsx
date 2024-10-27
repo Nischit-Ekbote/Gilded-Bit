@@ -61,7 +61,7 @@ const OrderDetailsModal: React.FC<OrderDetailsModalProps> = ({ order, onClose, h
   }
 
   return (
-    <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 duration-1000">
+
       <div className="bg-gradient-to-b to-black from-[#001D3D] rounded-lg p-8 w-[26rem] relative">
         <button 
           onClick={onClose}
@@ -95,7 +95,7 @@ const OrderDetailsModal: React.FC<OrderDetailsModalProps> = ({ order, onClose, h
           </button>
         </div>
       </div>
-    </div>
+
   );
 };
 

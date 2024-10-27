@@ -66,7 +66,7 @@ app.post('/api/v1/users', async (req, res) => {
             const newUser = await insertUser(req.body);
             res.status(201).json(newUser);
         } else {
-            res.status(409).json({ message: 'User already exists' });
+            res.status(202).json({ message: 'User already exists' });
         }
     } catch (error) {
         console.error('Error creating user:', error);
