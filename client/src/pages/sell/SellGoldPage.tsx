@@ -3,7 +3,7 @@ import { useUser } from "@clerk/clerk-react";
 import SingleSellCard from "../../components/SingleSellCard";
 import { toast, Toaster } from "sonner";
 
-const apiURL = "http://localhost:4000/api/v1/";
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000/api/v1";
 
 interface OrderData {
   id: string;
@@ -40,7 +40,7 @@ const SellGoldPage: React.FC<SellGoldPageProps> = ({ goldRates }) => {
         setIsLoading(true);
         setError(null);
         try {
-          const response = await fetch(`${apiURL}sell/goldData`, {
+          const response = await fetch(`${API_BASE_URL}sell/goldData`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
