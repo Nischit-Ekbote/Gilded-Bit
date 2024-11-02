@@ -72,7 +72,6 @@ const FloatingDockDesktop: React.FC<DockDesktopProps> = ({
 };
 
 const SimpleIconContainer: React.FC<Omit<DockItem, 'href'> & { href?: string }> = ({
-  title,
   icon,
   href = "#"
 }) => {
