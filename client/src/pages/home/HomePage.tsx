@@ -42,7 +42,7 @@ function HomePage() {
               setVideoError(`Video error: ${(e.target as HTMLVideoElement).error?.message || 'Unknown error'}`)}
           >
             
-            <source src='/better-metallic-bubble2-gradientBackground-opacity-20.mp4'/>
+            <source src='https://pub-d75c4476cafd4ecca54e6cdc5e180150.r2.dev/bg.mp4'/>
             Your browser does not support the video tag.
         </video>
         
