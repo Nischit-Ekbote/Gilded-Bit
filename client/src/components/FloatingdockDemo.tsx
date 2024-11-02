@@ -1,7 +1,10 @@
+// FloatingDockDemo.tsx
 import React from 'react';
 import { BadgeInfo, Receipt, ShoppingCart } from "lucide-react";
 import { FloatingDock } from "../components/ui/Floating-dock";
+import { FloatingDockHorizontal } from './ui/Floating-dock_horizontal';
 import { IconHome } from "@tabler/icons-react";
+import getWidth from "../lib/getWidth"
 
 const links = [
   {
@@ -27,9 +30,12 @@ const links = [
 ];
 
 export const FloatingDockDemo = React.memo(() => {
+ 
   return (
-    <div className="flex items-center justify-center h-[35rem] w-full">
-      <FloatingDock items={links} />
+    <div className="flex items-center justify-center lg:h-[35rem] w-fit">
+      {
+        getWidth().width > 1024 ? <FloatingDock items={links} /> : <FloatingDockHorizontal items={links} />
+      }
     </div>
   );
 });

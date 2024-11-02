@@ -1,107 +1,61 @@
-import React, { useRef, useState } from "react";
-import classNames from "classnames";
-import {
-  AnimatePresence,
-  MotionValue,
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import { Link } from "react-router-dom";
+import React, { useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform, MotionValue } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
-export const FloatingDock = ({
-  items,
-  desktopClassName,
-}: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
-  desktopClassName?: string;
-}) => {
-  return (
-    <FloatingDockDesktop items={items} className={desktopClassName} />
-  );
-};
-
-const FloatingDockDesktop = ({
-  items,
-  className,
-}: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
-  className?: string;
-}) => {
-  let mouseY = useMotionValue(Infinity);
-  return (
-    <motion.div
-      onMouseMove={(e) => mouseY.set(e.pageY)}
-      onMouseLeave={() => mouseY.set(Infinity)}
-      className={classNames(
-        "mx-auto hidden md:flex flex-col h-fit gap-3 items-center rounded-full bg-[black] p-4 dark:bg-neutral-900 justify-center w-16",
-        className
-      )}
-    >
-      {items.map((item) => (
-        <IconContainer mouseY={mouseY} key={item.title} {...item} />
-      ))}
-    </motion.div>
-  );
-};
-
-function IconContainer({
-  mouseY,
-  title,
-  icon,
-  href,
-}: {
-  mouseY: MotionValue;
+interface DockItem {
   title: string;
   icon: React.ReactNode;
   href: string;
-}) {
-  let ref = useRef<HTMLDivElement>(null);
+}
 
-  let distance = useTransform(mouseY, (val) => {
-    let bounds = ref.current?.getBoundingClientRect() ?? { y: 0, height: 0 };
+interface FloatingDockProps {
+  items: DockItem[];
+  desktopClassName?: string;
+}
+
+interface IconContainerProps extends DockItem {
+  mouseY: MotionValue;
+}
+
+const IconContainer: React.FC<IconContainerProps> = ({ mouseY, title, icon, href }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState<boolean>(false);
+
+  const distance = useTransform(mouseY, (val) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { y: 0, height: 0 };
     return val - bounds.y - bounds.height / 2;
   });
 
-  let widthTransform = useTransform(distance, [-100, 0, 100], [40, 60, 40]);
-  let heightTransform = useTransform(distance, [-100, 0, 100], [40, 60, 40]);
+  const widthTransform = useTransform(distance, [-100, 0, 100], [40, 60, 40]);
+  const heightTransform = useTransform(distance, [-100, 0, 100], [40, 60, 40]);
+  const iconSizeTransform = useTransform(distance, [-100, 0, 100], [20, 30, 20]);
 
-  let widthTransformIcon = useTransform(distance, [-100, 0, 100], [20, 30, 20]);
-  let heightTransformIcon = useTransform(distance, [-100, 0, 100], [20, 30, 20]);
-
-  let width = useSpring(widthTransform, {
+  const width = useSpring(widthTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  let height = useSpring(heightTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-
-  let widthIcon = useSpring(widthTransformIcon, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-  let heightIcon = useSpring(heightTransformIcon, {
+  
+  const height = useSpring(heightTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
 
-  const [hovered, setHovered] = useState(false);
+  const iconSize = useSpring(iconSizeTransform, {
+    mass: 0.1,
+    stiffness: 150,
+    damping: 12,
+  });
 
   return (
-    <Link to={href}>
+    <a href={href}>
       <motion.div
         ref={ref}
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className=" rounded-full bg-[#001D3D]  dark:bg-[--secondary--] flex items-center justify-center relative p-2"
+        className="rounded-full bg-[#001D3D] dark:bg-[--secondary--] flex items-center justify-center relative p-2"
       >
         <AnimatePresence>
           {hovered && (
@@ -116,12 +70,35 @@ function IconContainer({
           )}
         </AnimatePresence>
         <motion.div
-          style={{ width: widthIcon, height: heightIcon }}
+          style={{ 
+            width: iconSize, 
+            height: iconSize 
+          }}
           className="flex items-center justify-center"
         >
           {icon}
         </motion.div>
       </motion.div>
-    </Link>
+    </a>
   );
-}
+};
+
+export const FloatingDock: React.FC<FloatingDockProps> = ({ items, desktopClassName }) => {
+  const mouseY = useMotionValue(Infinity);
+
+  return (
+    <motion.div
+      onMouseMove={(e) => mouseY.set(e.pageY)}
+      onMouseLeave={() => mouseY.set(Infinity)}
+      className={`mx-auto hidden md:flex flex-col h-fit gap-3 items-center rounded-full bg-black p-4 dark:bg-neutral-900 justify-center w-16 ${desktopClassName ?? ''}`}
+    >
+      {items.map((item) => (
+        <IconContainer 
+          key={item.title} 
+          mouseY={mouseY} 
+          {...item} 
+        />
+      ))}
+    </motion.div>
+  );
+};

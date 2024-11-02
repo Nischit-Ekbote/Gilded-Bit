@@ -17,14 +17,13 @@ interface NavBarProps {}
 
 const NavBar: React.FC<NavBarProps> = () => {
   return (
-    <div className="navBar__container h-screen w-[100px] absolute z-50">
-      <nav style={{ flexDirection: "column" as const }}>
-        <div className="flex flex-col">
-          <img src="/Logo.svg" alt="Logo" className="h-[20px]" />
-              <LazyFloatingDockDemo />
-          </div>
+    <div className="navBar__container lg:h-screen lg:w-[100px] sm:w-full w-full absolute z-50 ">
+      <nav className="flex lg:flex-col w-full sm:h-[100px] h-[100px] lg:h-full justify-between items-center p-4">
 
-        <div className="absolute bottom-10">
+          <img src="/Logo.svg" alt="Logo" className="h-[20px] w-fit" />
+              <LazyFloatingDockDemo />
+
+        <div className="">
           <SignedOut>
             <SignInButton />
           </SignedOut>

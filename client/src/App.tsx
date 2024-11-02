@@ -129,7 +129,7 @@ function App(): JSX.Element {
       <div style={{ display: 'flex', background: backgroundColor , minHeight:'100vh'}}>
         <NavBar />
         {error && <div className="error-message">{error}</div>}
-        <div className='w-[100px]'></div>
+        <div className='lg:w-[100px]'></div>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />

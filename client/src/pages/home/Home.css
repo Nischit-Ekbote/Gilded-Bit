@@ -1,6 +1,5 @@
 .main__video__div{
     /* background-color: black; */
-    width: calc(100% - 250px);
     height: calc(100vh - 100px);
     overflow-y: hidden;
     display: flex;
@@ -8,23 +7,6 @@
     justify-content: center;
     align-items: center;
     /* transform: translateY(10%); */
-}
-
-.main__video__div h1{
-    font-size: 100px;
-    font-weight: 400;
-    /* width:100%; */
-    font-style: italic;
-    transform: translateY(30px);
-}
-
-.main__video__div p{
-    font-size: 40px;
-    font-weight: 200;
-    text-align: center;
-    width: 700px;
-    line-height: 1;
-    transform: translateY(30px);
 }
 
 .main__video{
