@@ -28,7 +28,6 @@ interface UserData {
 
 function App(): JSX.Element {
   const [goldRates, setGoldRates] = useState<GoldRates | null>(null);
-  const [error, setError] = useState<string | null>(null);
   const { user } = useUser();
   const location = useLocation(); 
 
