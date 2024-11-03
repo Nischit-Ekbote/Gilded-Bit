@@ -10,12 +10,12 @@ interface FeatureCardProps {
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="flex h-screen text-white w-[calc(100vw-100px)]">
+    <div className="flex text-white lg:w-[calc(100vw-100px)] w-full">
       <div className="flex-grow p-8 overflow-y-auto">
-        <div className="h-screen flex flex-col py-20">
-          <h2 className="text-7xl  mb-6 text-[--primary--]">About GildedBit</h2>
+        <div className="lg:h-screen flex flex-col py-20">
+          <h2 className=" text-5xl sm:text-6xl md:text-7xl  mb-6 text-[--primary--]">About GildedBit</h2>
 
-          <p className="mb-6 text-gray-300 w-[60%] text-5xl ">
+          <p className="mb-6 text-gray-300 lg:w-[60%] h-full text-xl md:text-5xl">
             GildedBit leads digital gold investment, combining the enduring
             value of <span className="text-[#ffffb7]">gold</span> with modern{" "}
             <span className="text-[#ffffb7]">tech</span>nology. Our platform
@@ -25,10 +25,10 @@ const AboutPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="h-screen">
-          <h3 className="text-7xl  mb-6 text-[--primary--]">Our Features</h3>
+        <div className="lg:h-screen">
+          <h3 className="text-5xl sm:text-6xl md:text-7xl mb-6 text-[--primary--]">Our Features</h3>
 
-          <div className="flex gap-10 mb-8">
+          <div className="flex flex-col md:flex-row gap-10 mb-8">
             <FeatureCard
               icon={<Shield className="w-8 h-8 text-yellow-500" />}
               title="Robust Security"
@@ -51,11 +51,11 @@ const AboutPage: React.FC = () => {
           /> */}
           </div>
 
-          <h3 className="text-7xl  mb-6 text-[--primary--] mt-20">
+          <h3 className="text-5xl sm:text-6xl md:text-7xl  mb-6 text-[--primary--]">
             Why Choose GildedBit?
           </h3>
 
-          <ul className="list-disc list-inside mb-6 text-gray-300 text-2xl">
+          <ul className="list-disc list-inside mb-6 text-gray-300 text-xl md:text-2xl">
             <li>Fully digital platform - trade gold anytime, anywhere</li>
             <li>Transparent transactions with no hidden fees</li>
             <li>
@@ -77,11 +77,11 @@ const AboutPage: React.FC = () => {
           </ul>
         </div>
 
-        <h3 className="text-7xl mb-4 text-yellow-500">
+        <h3 className="text-5xl sm:text-6xl md:text-7xl  mb-6 text-[--primary--]">
           Our Mission
         </h3>
 
-        <p className="mb-6 text-gray-300 text-2xl">
+        <p className="mb-6 text-gray-300 text-xl sm:text-2xl">
           At GildedBit, we're on a mission to revolutionize gold investment by
           making it accessible to everyone in the digital world. We believe in
           combining the historical stability of gold with modern technology,
@@ -121,7 +121,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     </p>
     <div className="flex items-center pt-5 gap-3 w-full">
       {icon}
-      <h4 className="text-2xl font-semibold ml-2 text-[--primary--] ">{title}</h4>
+      <h4 className=" text-xl md:text-2xl md:font-semibold ml-2 text-[--primary--] ">{title}</h4>
     </div>
   </div>
 );

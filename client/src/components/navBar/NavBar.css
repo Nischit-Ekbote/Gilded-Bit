@@ -1,11 +1,7 @@
 .navBar__container{
-    /* width: 100px;
-    height: 100vh; */
     display: flex;
     justify-content: center;
-    /* padding: 30px 0px; */
 }
-
 
 .navBar__container nav{
     color:var(--primary--);

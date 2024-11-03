@@ -38,6 +38,7 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
   const { user } = useUser();
   const [grams, setGrams] = useState<string>("");
   const [selectedType, setSelectedType] = useState<string>("24k");
+  const [loading, setLoading] = useState(false);
   const type = selectedType;
   
   if (!goldRates) {
@@ -58,14 +59,17 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
   const tot = currentPrice * Number(grams) || 0 ;
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true)
     if (!user) {
       toast.error("Please log in to buy gold.");
+      setLoading(false);
       return;
     }
 
     const gramsValue = parseFloat(grams);
     if (isNaN(gramsValue) || gramsValue <= 0) {
       toast.error("Please enter a valid number of grams.");
+      setLoading(false);
       return;
     }
   };
@@ -78,7 +82,7 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
     <div className="buy__gold__container">
       <div className="w-fit">
         <Toaster richColors />
-      <h1 className="text-4xl">Buy Gold</h1>
+      <h1 className="text-4xl my-20">Buy Gold</h1>
       <div className="gold-type-buttons">
         {goldTypes.map((type) => (
           <button
@@ -101,7 +105,7 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
             value={grams}
             onChange={(e) => setGrams(e.target.value)}
             placeholder="Enter grams of gold"
-            // disabled={isLoading}
+            disabled={loading}
             required
           />
           <p>={tot.toFixed(2)}Rs</p>
@@ -116,6 +120,8 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
           productName={`${grams}g of ${selectedType.toUpperCase()} Gold`} 
           grams={grams}
           type={type}
+          loading={loading}
+          setLoading={setLoading}
         />
       </form>
       </div>
