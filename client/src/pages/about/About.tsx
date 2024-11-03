@@ -99,7 +99,7 @@ const AboutPage: React.FC = () => {
             digital gold.
           </p>
           <Link
-            to="/buy/gold"
+            to="/"
             className="bg-yellow-500 text-black font-bold py-2 px-4 rounded w-fit hover:bg-inherit border border-[--primary--] hover:text-[--primary--]"
           >
             Create Your GildedBit Account

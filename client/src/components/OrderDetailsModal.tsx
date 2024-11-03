@@ -87,7 +87,7 @@ const OrderDetailsModal: React.FC<OrderDetailsModalProps> = ({ order, onClose, h
                 <td className={`${ Number(stats.profitLoss) < 0 ? 'text-red-500' : 'text-[#00FF29]' }`}>
                   {stats.current}
                 </td >
-                <td rowSpan={2} className={`${ Number(stats.profitLoss) < 0 ? 'text-red-500' : 'text-[#00FF29]'}`}>{stats.profitLoss}</td>
+                <td rowSpan={2} className={`${ Number(stats.profitLoss) < 0 ? 'text-red-500' : 'text-[#00FF29]'}`}>{Number(stats.profitLoss) < 0 ? '-' : '+'}{stats.profitLoss}</td>
               </tr>
             </tbody>
           </table>

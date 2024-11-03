@@ -8,6 +8,7 @@ import BuyGoldPage from './pages/buy/BuyGoldPage';
 import SellGoldPage from './pages/sell/SellGoldPage';
 import Success from './pages/sucess/Success';
 import AboutPage from './pages/about/About';
+import { toast, Toaster } from 'sonner';
 
 const API_BASE_URL = "https://gilded-bit.vercel.app/api/v1";
 
@@ -70,7 +71,8 @@ function App(): JSX.Element {
 
         setGoldRates(externalData);
       } catch (err) {
-        setError((err as Error).message);
+        // setError((err as Error).message);
+        toast.error((err as Error).message)
         console.error('Error in gold rate operations:', err);
       }
     }
@@ -126,7 +128,8 @@ function App(): JSX.Element {
     : ''; // Default background for other routes
 
   return (
-      <div style={{ display: 'flex', background: backgroundColor , minHeight:'100vh'}}>
+      <div style={{ display: 'flex', background: backgroundColor , height:'calc(100vh+10px)'}}>
+        <Toaster richColors/>
         <NavBar />
         {error && <div className="error-message">{error}</div>}
         <div className='lg:w-[100px]'></div>

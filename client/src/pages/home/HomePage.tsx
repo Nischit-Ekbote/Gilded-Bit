@@ -26,9 +26,9 @@ function HomePage() {
 
   return (
     <>
-      <div className='main__video__div lg:w-[calc(100% - 250px)] w-full px-10'>
+      <div className='main__video__div lg:w-[calc(100%-250px)] w-full px-10 my-5'>
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal italic translate-y-8">GildedBit</h1>
-        <p className=" text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-extralight text-center lg:w-[700px] leading-none translate-y-8"> Revolutionizing wealth <span className="gold">preservation</span> in the <span className="gold">digital</span> age.</p>
+        <p className=" text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-extralight text-center lg:w-[700px] leading-none translate-y-8 mt-2"> Revolutionizing wealth <span className="gold">preservation</span> in the <span className="gold">digital</span> age.</p>
           <div className="flex sm:flex-row flex-col gap-2 md:gap-6 m-4 md:m-8 translate-y-[30px]">
               <Link to='/buy/gold' className="bg-[--primary--] text-[--secondary--] rounded-full flex justify-center px-[30px] md:px-[80px] py-3 hover:bg-inherit border border-[--primary--] hover:border-[--pimary--] hover:text-[white] duration-300 font-semibold">Buy Gold</Link>
               <Link to='/sell/gold' className="border border-[--primary--] rounded-full flex justify-center px-[30px] md:px-[80px] py-3 hover:bg-[white] hover:text-[--secondary--] duration-300">Sell Gold</Link>
