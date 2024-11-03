@@ -127,7 +127,7 @@ function App(): JSX.Element {
     : ''; // Default background for other routes
 
   return (
-      <div style={{ display: 'flex', background: backgroundColor , height:'calc(100vh+10px)'}}>
+      <div style={{ display: 'flex', background: backgroundColor , minHeight:'calc(100vh+10px)'}}>
         <Toaster richColors/>
         <NavBar />
         <div className='lg:w-[100px]'></div>
