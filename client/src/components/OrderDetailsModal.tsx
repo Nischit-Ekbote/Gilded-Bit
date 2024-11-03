@@ -64,10 +64,10 @@ const OrderDetailsModal: React.FC<OrderDetailsModalProps> = ({ order, onClose, h
 
   return (
 
-      <div className="bg-gradient-to-b to-black from-[#001D3D] rounded-lg p-8 w-[26rem] relative">
+      <div className="bg-gradient-to-b to-black from-[#001D3D] rounded-lg p-8 md:w-[26rem] relative w-fit">
         <button 
           onClick={onClose}
-          className="absolute -top-4 -right-4 text-gray-500 hover:text-black bg-[--primary--] rounded-3xl p-2"
+          className="absolute top-5 right-5 sm:-top-4 sm:-right-4 text-gray-500 hover:text-black bg-[--primary--] rounded-3xl p-2"
         >
           <X size={24} />
         </button>

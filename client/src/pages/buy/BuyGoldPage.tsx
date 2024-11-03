@@ -82,7 +82,7 @@ const BuyGoldPage: React.FC<BuyGoldPageProps> = ({ goldRates }) => {
     <div className="buy__gold__container">
       <div className="w-fit">
         <Toaster richColors />
-      <h1 className="text-4xl my-20">Buy Gold</h1>
+      <h1 className="text-4xl my-12 lg:my-10">Buy Gold</h1>
       <div className="gold-type-buttons">
         {goldTypes.map((type) => (
           <button

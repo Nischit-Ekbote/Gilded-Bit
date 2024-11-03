@@ -63,7 +63,7 @@ const updateDailyGoldRate = async (goldData) => {
 
 const getGoldData = async () => {
     try {
-        const res = await sql `select * from gold`
+        const res = await sql `select * from gold order by date`
         return res
     } catch (error) {
         console.error('Error getting Gold Data')
